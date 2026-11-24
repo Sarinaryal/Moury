@@ -1,0 +1,14 @@
+import 'package:flutter/material.dart';
+
+class NavigationService {
+  static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+  
+  static void goToTab(int index) {
+    // Find the CustomerShellState and call goTab
+    final BuildContext? context = navigatorKey.currentContext;
+    if (context != null) {
+      final customerShell = context.findAncestorStateOfType<CustomerShellState>();
+      customerShell?.goTab(index);
+    }
+  }
+}
